@@ -25,11 +25,21 @@ public class Book {
         this.checkedOutTo = checkedOutTo;
     }
 
-    public boolean isCheckedOut() {
-        return isCheckedOut;
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId: " + id +
+                ", Isbn: " + isbn +
+                "Title: " + title +
+                "Checked Out: " + isCheckedOut +
+                "Checked out to: " + checkedOutTo +
+                "}";
     }
 
 
+    public boolean isCheckedOut() {
+        return isCheckedOut;
+    }
 
     public int getId() {
         return id;
@@ -67,8 +77,30 @@ public class Book {
         this.checkedOutTo = checkedOutTo;
     }
 
-    //Create an array of 20 books
-    //Create a checkOut method with a name parameter
+
+    public void checkOut(String name) {
+        if (!isCheckedOut) {
+            isCheckedOut = true;
+            checkedOutTo = name;
+            System.out.println("You have checked out");
+        } else {
+            System.out.println("This book has been checked out by " + name);
+        }
+    }
+
+    public void checkIn() {
+        if (isCheckedOut) {
+            checkedOutTo = "";
+            isCheckedOut = false;
+            System.out.println("You have checked in your book.");
+        } else {
+            System.out.println("Your book is still checked out.");
+        }
+    }
+
+
+
+
     //create a checkIn method that shows a book is currently in stock
     //Create a home screen with a list of options the user can choose from
     //available books option
